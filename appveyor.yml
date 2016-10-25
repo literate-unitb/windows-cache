@@ -17,6 +17,7 @@ cache: []
 
 install:
 - git clone -q --branch=master https://github.com/literate-unitb/literate-unitb-logic.git c:\\stack\\code
+- cd code
 - curl -sS -ostack.zip -L --insecure http://www.stackage.org/stack/windows-i386
 - 7z x stack.zip stack.exe
 
@@ -38,7 +39,6 @@ build:
   parallel: true
 
 build_script:
-- cd code
 - stack setup %lts% > nul
 - cmd: echo "" | stack --no-terminal install literate-unitb-config %lts% --test --no-run-tests
 - cd ..
