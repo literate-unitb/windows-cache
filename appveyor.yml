@@ -16,7 +16,7 @@ cache: []
 # - "C:\\stack\\.stack-work\\logs"
 
 install:
-- git clone -q --branch=master https://github.com/literate-unitb/literate-unitb-logic.git c:\\stack
+- git clone -q --branch=master https://github.com/literate-unitb/literate-unitb-logic.git c:\\stack\\code
 - curl -sS -ostack.zip -L --insecure http://www.stackage.org/stack/windows-i386
 - 7z x stack.zip stack.exe
 
@@ -38,9 +38,11 @@ build:
   parallel: true
 
 build_script:
+- cd code
 - stack setup %lts% > nul
 - cmd: echo "" | stack --no-terminal install literate-unitb-config %lts% --test --no-run-tests
-- 7z a cache-$(platform).7z .stack-work c:\\sr
+- cd ..
+- 7z a cache-$(platform).7z code\\.stack-work c:\\sr
 
 deploy:
   release: myproduct-v$(appveyor_build_version)
