@@ -42,7 +42,9 @@ build_script:
 - stack setup %lts% > nul
 - cmd: echo "" | stack --no-terminal install literate-unitb-config %lts% --test --no-run-tests
 - cd ..
-- 7z a cache-$(platform).7z code\\.stack-work c:\\sr
+- dir
+- dir code
+- 7z a cache-$(platform).7z c:\\stack\\code\\.stack-work c:\\sr
 
 deploy:
   release: myproduct-v$(appveyor_build_version)
