@@ -44,7 +44,7 @@ build_script:
 - cd ..
 - dir
 - dir code
-- 7z a cache-$(platform).7z c:\\stack\\code\\.stack-work c:\\sr
+- 7z a cache-%platform%.7z c:\\stack\\code\\.stack-work c:\\sr
 
 deploy:
   release: myproduct-v$(appveyor_build_version)
