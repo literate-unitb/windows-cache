@@ -40,11 +40,12 @@ build:
 
 build_script:
 - stack setup %lts% > nul
-- cmd: echo "" | stack --no-terminal install literate-unitb-config %lts% --no-run-tests
+- cmd: echo "" | stack --no-terminal install lens %lts% --no-run-tests
 - cd ..
 - dir
 - dir code
 - 7z a cache-%platform%.7z c:\\stack\\code\\.stack-work c:\\sr
+- dir
 
 deploy:
   release: myproduct-v$(appveyor_build_version)
@@ -52,7 +53,7 @@ deploy:
   provider: GitHub
   auth_token: 
     secure: 7Nj4tTtmF2gke6WRsKmZG7l58G6Ue5Yw29DucWAgq3Ea34iuYCyZSpl7T7EezB5z # your encrypted token from GitHub
-  artifact: c:\\stack\\cache-$(platform).7z   # upload all NuGet packages to release assets
+  artifact: c:\\stack\\cache-%platform%.7z   # upload all NuGet packages to release assets
   draft: false
   prerelease: false
   on:
