@@ -53,7 +53,7 @@ deploy:
   provider: GitHub
   auth_token: 
     secure: 7Nj4tTtmF2gke6WRsKmZG7l58G6Ue5Yw29DucWAgq3Ea34iuYCyZSpl7T7EezB5z # your encrypted token from GitHub
-  artifact: c:\\stack\\cache-%platform%.7z   # upload all NuGet packages to release assets
+  artifact: c:\stack\cache-%platform%.7z   # upload all NuGet packages to release assets
   draft: false
   prerelease: false
   on:
